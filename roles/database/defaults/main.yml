@@ -1,0 +1,4 @@
+postgres_image: "docker.io/postgres"
+postgres_version: "69bd7cc493f84c970cf0af442dbf1ed15315b63c3a1cd2f8556dc9e98004a11f"
+
+postgres_container: 'mastodon_db'

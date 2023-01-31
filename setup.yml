@@ -1,0 +1,9 @@
+---
+- name: Setup Mastodon
+  # hosts: all
+
+  roles:
+    - database
+    # - mastodon
+    # - ssl
+    # - proxy

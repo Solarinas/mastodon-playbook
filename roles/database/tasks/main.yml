@@ -1,0 +1,21 @@
+---
+- name: Setup PostgreSQL
+  become: true
+  become_user: "postgres"
+  block:
+    - name: Pull Postgres Image
+      podman_image:
+        name: "{{ postgres_image }}"
+        tag: "{{ postgres_version }}"
+    - name: Create Postgres container
+      containers.podman.podman_container:
+        name: "{{ postgres_container }}"
+        image: "{{ postgres_image }}:{{ postgres_version }}"
+        state: started
+        env:
+          POSTGRES_PASSWORD: "testing"
+          POSTGRES_USER: "mastodon"
+          POSTGRES_DB: "mastodon"
+        ports:
+          - 5432:5432
+    - name: Enable Postgres service
