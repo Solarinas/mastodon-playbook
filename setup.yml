@@ -1,6 +1,6 @@
 ---
 - name: Setup Mastodon
-  # hosts: all
+  hosts: all
 
   roles:
     - database

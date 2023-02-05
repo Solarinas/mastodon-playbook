@@ -10,7 +10,7 @@
     - name: Create Postgres container
       containers.podman.podman_container:
         name: "{{ postgres_container }}"
-        image: "{{ postgres_image }}:{{ postgres_version }}"
+        image: "{{ postgres_image }}@{{ postgres_version }}"
         state: started
         env:
           POSTGRES_PASSWORD: "testing"
@@ -18,4 +18,4 @@
           POSTGRES_DB: "mastodon"
         ports:
           - 5432:5432
-    - name: Enable Postgres service
+    # - name: Enable Postgres service
